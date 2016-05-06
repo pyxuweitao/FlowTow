@@ -46,7 +46,7 @@ class COMP249Db():
         import hashlib, binascii
 
         salt = b'salt should be a random string'
-        dk = hashlib.pbkdf2_hmac('sha256', bytes(password, 'utf-8'), salt, 100000)
+        dk = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
         return binascii.hexlify(dk).decode('utf-8')
 
 
@@ -146,5 +146,5 @@ CREATE TABLE likes (
 if __name__=='__main__':
     # if we call this script directly, create the database and make sample data
     db = COMP249Db()
-    db.create_tables()
+    #db.create_tables()
     db.sample_data()
