@@ -19,7 +19,39 @@
 
 </head>
 <body>
+<header class="am-topbar am-topbar-fixed-top">
+    <div class="am-container">
+        <h1 class="am-topbar-brand">
+            <a href="#">FlowTow</a>
+        </h1>
 
+        <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav">
+                %if homeActive:
+                    <li class="am-active"><a href="/">Home</a></li>
+                %else:
+                    <li><a href="/">Home</a></li>
+                %end
+                %if aboutActive:
+                    <li class="am-active"><a href="/">About</a></li>
+                %else:
+                    <li><a href="/">About</a></li>
+                %end
+            </ul>
+
+            <div class="am-topbar-right">
+                <button class="am-btn am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span>
+                    New?
+                </button>
+            </div>
+
+            <div class="am-topbar-right">
+                <button class="am-btn am-topbar-btn am-btn-sm login-button"><span class="am-icon-user"></span> Login
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
 {{!base}}
 
 <!--[if lt IE 9]>

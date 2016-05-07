@@ -1,80 +1,92 @@
-.get {
-    background: #1E5B94;
-    color: #fff;
-    text-align: center;
-    padding: 100px 0;
+body, html {
+    height: 100%;
 }
 
-.get-title {
+.welcome {
+    background: #333333;
+    color: #FFF;
+    text-align: center;
+    padding: 40px 0 0 0;
+}
+
+.welcome-title {
     font-size: 200%;
-    border: 2px solid #fff;
+    border: 2px solid #FFF;
     padding: 20px;
     display: inline-block;
 }
 
-.get-btn {
-    background: #fff;
+.welcome-p {
+    font-size: 25px;
 }
 
-.detail {
-    background: #fff;
+.welcome-btn {
+    background: #FFF;
 }
 
-.detail-h2 {
+.flowtow-h2 {
     text-align: center;
     font-size: 150%;
     margin: 40px 0;
 }
 
-.detail-h3 {
-    color: #1f8dd6;
+.user {
+    float: right;
+
 }
 
-.detail-p {
-    color: #7f8c8d;
+.date {
+    float: left;
+    clear: left;
 }
 
-.detail-mb {
-    margin-bottom: 30px;
+.likes {
+    color: #999999 !important;
+    float: left;
 }
 
-.hope {
-    background: #0bb59b;
-    padding: 50px 0;
+.flowtow-like-button {
+    float: right;
+    margin-top: 10px;
+    padding: 3px 6px 3px 6px;
+    font-size: 15px;
 }
 
-.hope-img {
+.flowtow {
+    padding: 10px;
+    position: relative
+}
+
+.flowtow-info {
+    color: #FFF;
+    padding-top: 5px;
+    overflow: auto;
+}
+
+.flowtow-background {
+    background-color: #EBECED;
+    height: inherit;
+}
+
+.am-article {
     text-align: center;
+    margin: 30px 0 10px 0;
 }
 
-.hope-hr {
-    border-color: #149C88;
+.am-article-title {
+    font-size: 40px;
 }
 
-.hope-title {
-    font-size: 140%;
+.am-article-bd {
+    font-size: 20px;
 }
 
-.about {
-    background: #fff;
-    padding: 40px 0;
-    color: #7f8c8d;
+.login-button {
+    background-color: #333333;
+    color: #FFF;
 }
 
-.about-color {
-    color: #34495e;
+.am-gallery-item {
+    background-color: #FFF;
 }
 
-.about-title {
-    font-size: 180%;
-    padding: 30px 0 50px 0;
-    text-align: center;
-}
-
-.footer p {
-    color: #7f8c8d;
-    margin: 0;
-    padding: 15px 0;
-    text-align: center;
-    background: #2d3e50;
-}

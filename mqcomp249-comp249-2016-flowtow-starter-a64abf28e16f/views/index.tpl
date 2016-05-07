@@ -1,93 +1,71 @@
-% rebase('base.tpl', title='FlowTow')
+% rebase('base.tpl')
 
-<header class="am-topbar am-topbar-fixed-top">
-    <div class="am-container">
-        <h1 class="am-topbar-brand">
-            <a href="#">FlowTow</a>
-        </h1>
 
-        <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li class="am-active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        下拉菜单 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li class="am-dropdown-header">标题</li>
-                        <li><a href="#">1. 默认样式</a></li>
-                        <li><a href="#">2. 基础设置</a></li>
-                        <li><a href="#">3. 文字排版</a></li>
-                        <li><a href="#">4. 网格系统</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <div class="am-topbar-right">
-                <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span>
-                    New?
-                </button>
-            </div>
-
-            <div class="am-topbar-right">
-                <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> Login
-                </button>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="get">
+<div class="welcome">
     <div class="am-g">
         <div class="am-u-lg-12">
-            <h1 class="get-title">FlowTow</h1>
-
-            <p>
+            <h1 class="welcome-title">FlowTow</h1>
+            <p class="welcome-p">
                 Welcome to FlowTow
             </p>
-
-            <p>
-                <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">获取新get技能√</a>
-            </p>
         </div>
     </div>
 </div>
 
-<div class="detail">
+<div class="flowtow-background">
     <div class="am-g am-container">
         <div class="am-u-lg-12">
-            <h2 class="detail-h2">Three Images</h2>
-
-            <div class="am-g">
-                <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb">
-
-                    <h3 class="detail-h3">
-                        <i class="am-icon-mobile am-icon-sm"></i>
-                        为移动而生
-                    </h3>
-
-
-                </div>
-                <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb">
-                    <h3 class="detail-h3">
-                        <i class="am-icon-cogs am-icon-sm"></i>
-                        组件丰富，模块化
-                    </h3>
-
-
-                </div>
-                <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb">
-                    <h3 class="detail-h3">
-                        <i class="am-icon-check-square-o am-icon-sm"></i>
-                        本地化支持
-                    </h3>
-
-
-                </div>
-            </div>
+            <h2 class="flowtow-h2">Three Images</h2>
+            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-avg-md-3 am-avg-lg-3 am-gallery-bordered">
+                <li>
+                    <div class="am-gallery-item flowtow">
+                        <img src="/static/images/seashell.jpg" alt=""/>
+                        <div class="flowtow-info">
+                            <span class="am-gallery-title am-icon-sm am-icon-heart likes"> 6</span>
+                            <form action="/like">
+                                <input type="hidden" name="filename" value="seashell.jpg">
+                                <input type="submit"
+                                        class="am-btn am-btn-xs am-btn-danger am-round flowtow-like-button" value="Like">
+                            </form>
+                            <hr style="float:left"/>
+                            <div class="am-gallery-desc date">2015-09-26</div>
+                            <div class="am-gallery-desc user">ZhiyuShen</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="am-gallery-item flowtow">
+                        <img src="/static/images/cycling.jpg" alt=""/>
+                        <div class="flowtow-info">
+                            <span class="am-gallery-title am-icon-sm am-icon-heart likes"> 6</span>
+                            <form action="/like">
+                                <input type="hidden" name="filename" value="cycling.jpg">
+                                <input type="submit"
+                                        class="am-btn am-btn-xs am-btn-danger am-round flowtow-like-button" value="Like">
+                            </form>
+                            <hr style="float:left"/>
+                            <div class="am-gallery-desc date">2016-09-26</div>
+                            <div class="am-gallery-desc user">ZhiyuShen</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="am-gallery-item flowtow">
+                        <img src="/static/images/window.jpg" alt=""/>
+                        <div class="flowtow-info">
+                            <span class="am-gallery-title am-icon-sm am-icon-heart likes"> 6</span>
+                            <form action="/like">
+                                <input type="hidden" name="filename" value="window.jpg">
+                                <input type="submit"
+                                        class="am-btn am-btn-xs am-btn-danger am-round flowtow-like-button" value="Like">
+                            </form>
+                            <hr style="float:left"/>
+                            <div class="am-gallery-desc date">2014-09-26</div>
+                            <div class="am-gallery-desc user">ZhiyuShen</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
-
-
