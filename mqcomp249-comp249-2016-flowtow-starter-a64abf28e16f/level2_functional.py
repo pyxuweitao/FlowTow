@@ -6,8 +6,8 @@ Created on Mar 3, 2014
 import unittest
 import webtest
 import re
-from urllib.parse import urlparse
-
+#from urllib.parse import urlparse
+from urlparse import urlparse
 import main
 from database import COMP249Db
 

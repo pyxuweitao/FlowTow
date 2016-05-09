@@ -3,7 +3,7 @@
 @author:ZhiyuShen
 '''
 
-from bottle import Bottle, template, debug, static_file
+from bottle import Bottle, template, debug, static_file, request, redirect
 import interface
 import users
 from database import COMP249Db
@@ -19,7 +19,15 @@ def index():
     首页
     :return: 首页标题
     """
-    return template('index', {"title": "FlowTow!", "homeActive": True, "aboutActive": False})
+    imagesNumber = 3
+    flowTowDataBase = COMP249Db()
+    imagesList = interface.list_images(db=flowTowDataBase, n=imagesNumber)
+    renderDict = {"title": "FlowTow!",
+                  "homeActive": True,
+                  "aboutActive": False,
+                  "imagesList": imagesList,
+                  "imagesNumber": imagesNumber}
+    return template('index', renderDict)
 
 
 @application.route('/about')
@@ -28,7 +36,18 @@ def about():
     About页面
     :return:模板渲染网页标题
     """
-    return template('about', {"title": "FlowTow About", "homeActive": False, "aboutActive": True})
+    renderDict = {"title": "FlowTow!",
+                  "homeActive": False,
+                  "aboutActive": True}
+    return template('about', renderDict)
+
+
+@application.route('/like', method='POST')
+def like():
+    filename = request.POST.get('filename')
+    flowTowDataBase = COMP249Db()
+    interface.add_like(db=flowTowDataBase, filename=filename)
+    return redirect('/')
 
 
 @application.route('/static/:fileName#.*#')

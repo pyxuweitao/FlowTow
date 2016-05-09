@@ -59,7 +59,7 @@ class Level2UnitTests(unittest.TestCase):
         interface.add_image(self.db, imagename, usernick)
 
         images = interface.list_images(self.db, 5)
-
+        print images
         self.assertEqual(imagename, images[0]['filename'], 'wrong image name after add_image')
         self.assertEqual(usernick, images[0]['user'], 'wrong user in first image')
         # date should be today's date in UTC to match SQLite
@@ -73,7 +73,7 @@ class Level2UnitTests(unittest.TestCase):
         for image in self.images:
 
             count = interface.count_likes(self.db, image[0])
-
+            print image
             # expect the listed users plus one anonymous like
             self.assertEqual(len(image[3])+1, count)
 
