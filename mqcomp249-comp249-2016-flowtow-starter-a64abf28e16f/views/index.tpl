@@ -17,7 +17,7 @@
         <div class="am-u-lg-12">
             <h2 class="flowtow-h2">{{imagesNumber}} Images</h2>
             <ul data-am-widget="gallery"
-                class="am-gallery am-avg-sm-{{imagesNumber}} am-avg-md-{{imagesNumber}} am-avg-lg-{{imagesNumber}} am-gallery-bordered">
+                class="am-gallery am-avg-sm-3 am-avg-md-3 am-avg-lg-3 am-gallery-bordered">
                 % for image in imagesList:
                 <li>
                     <div class="am-gallery-item flowtow">

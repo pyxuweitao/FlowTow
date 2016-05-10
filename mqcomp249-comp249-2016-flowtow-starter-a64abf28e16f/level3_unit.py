@@ -7,7 +7,7 @@ Created on Mar 26, 2012
 import unittest
 
 from database import COMP249Db
-from http.cookies import SimpleCookie
+from Cookie import SimpleCookie
 from bottle import request, response
 
 # import the module to be tested

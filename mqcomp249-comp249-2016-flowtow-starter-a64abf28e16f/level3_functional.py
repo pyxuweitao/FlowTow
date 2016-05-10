@@ -5,7 +5,7 @@ Created on Mar 3, 2014
 '''
 import unittest
 import webtest
-from urllib.parse import urlparse
+from urlparse import urlparse
 
 import main
 import users

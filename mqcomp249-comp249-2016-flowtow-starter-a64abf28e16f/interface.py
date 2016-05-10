@@ -12,10 +12,11 @@ def list_images(db, n, usernick=None):
     If usernick is given, then only images belonging to that user are returned."""
     flowTowCursor = db.cursor()
     if usernick:
+        # 此处没有加limit因为My images页面需要有所有的用户上传图片，而不是3
         SQL = """SELECT filename, timestamp, usernick user,
                     (SELECT COUNT(*) FROM likes WHERE filename=images.filename) likes
-                     FROM images WHERE images.usernick = ? ORDER BY timestamp DESC LIMIT ?"""
-        flowTowCursor.execute(SQL, [usernick, n])
+                     FROM images WHERE images.usernick = ? ORDER BY timestamp DESC"""
+        flowTowCursor.execute(SQL, [usernick])
     else:
         SQL = """SELECT filename, timestamp, usernick user,
                     (SELECT COUNT(*) FROM likes WHERE filename=images.filename) likes
