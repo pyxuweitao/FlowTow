@@ -32,6 +32,7 @@ def add_image(db, filename, usernick):
     flowTowCursor = db.cursor()
     SQL = """INSERT INTO images(filename, timestamp, usernick) VALUES (?, datetime('now'), ?)"""
     flowTowCursor.execute(SQL, [filename, usernick])
+    db.commit()
 
 def imageExist(db, filename):
     """

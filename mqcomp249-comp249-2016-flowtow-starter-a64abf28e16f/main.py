@@ -6,6 +6,7 @@
 from bottle import Bottle, template, debug, static_file, request, redirect
 import interface
 import users
+import uploads
 from database import COMP249Db
 
 COOKIE_NAME = 'sessionid'
@@ -58,7 +59,7 @@ def my():
     flowTowDataBase = COMP249Db()
     userNick = users.session_user(db=flowTowDataBase)
     if userNick:
-        #此处的n不起作用，因为指定了用户名
+        # 此处的n不起作用，因为指定了用户名
         imagesList = interface.list_images(db=flowTowDataBase, n=0, usernick=userNick)
         renderDict = {"title": "FlowTow!",
                       "homeActive": False,
@@ -72,11 +73,31 @@ def my():
         return redirect('/')
 
 
+@application.route('/upload', method='POST')
+def upload():
+    """
+    文件上传页面
+    :return: 返回页面渲染字典
+    """
+    flowTowDataBase = COMP249Db()
+    userNick = users.session_user(db=flowTowDataBase)
+    if userNick:
+        uploads.uploadImage(db=flowTowDataBase, userNick=userNick)
+        return redirect('/my')
+    else:
+        return redirect('/')
+
+
 @application.route('/like', method='POST')
 def like():
+    """
+    处理喜欢图片的请求
+    :return: 重定向至指定页面
+    """
     filename = request.POST.get('filename')
     flowTowDataBase = COMP249Db()
-    interface.add_like(db=flowTowDataBase, filename=filename)
+    userNick = users.session_user(db=flowTowDataBase)
+    interface.add_like(db=flowTowDataBase, filename=filename, usernick=userNick)
     return redirect('/')
 
 
@@ -98,6 +119,7 @@ def login():
                   "userNick": None}
     return template("loginFailed", renderDict)
 
+
 @application.route('/logout', method='POST')
 def logout():
     """
@@ -108,6 +130,7 @@ def logout():
     requestUser = users.session_user(flowTowDataBase)
     users.delete_session(db=flowTowDataBase, usernick=requestUser)
     return redirect('/')
+
 
 @application.route('/static/:fileName#.*#')
 def server_static(fileName):

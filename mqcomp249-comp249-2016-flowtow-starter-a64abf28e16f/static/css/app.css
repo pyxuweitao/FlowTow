@@ -65,7 +65,6 @@ body, html {
 
 .flowtow-background {
     background-color: #EBECED;
-    height: inherit;
 }
 
 .am-article {
@@ -88,5 +87,10 @@ body, html {
 
 .am-gallery-item {
     background-color: #FFF;
+}
+
+.am-form-file > .am-btn {
+    background-color: #333333 !important;
+    color: #FFF;
 }
 
