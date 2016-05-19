@@ -48,9 +48,10 @@
 
             %if userNick==None:
             <div class="am-topbar-right">
-                <button class="am-btn am-topbar-btn am-btn-sm">
-                    New?
-                </button>
+                <!--<button class="am-btn am-topbar-btn am-btn-sm">-->
+                    <!--New?-->
+                <!--</button>-->
+                <input type="button" class="am-btn am-topbar-btn am-btn-sm" onclick="window.location.href='/register';" value="New?">
             </div>
 
             <div class="am-topbar-right">

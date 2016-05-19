@@ -142,6 +142,59 @@ def server_static(fileName):
     return static_file(fileName, root='./static')
 
 
+@application.route('/register')
+def register():
+    """
+    注册用户页面进入
+    :return:
+    """
+
+    flowTowDataBase = COMP249Db()
+    userNick = users.session_user(db=flowTowDataBase)
+    if userNick:
+        registerInfo = "Please logout first"
+        showRegister = False
+    else:
+        registerInfo = ""
+        showRegister = True
+    renderDict = {"title": "FlowTow!",
+                  "homeActive": False,
+                  "aboutActive": False,
+                  "userNick": userNick,
+                  "myActive": False,
+                  "registerInfo": registerInfo,
+                  "showRegister": showRegister}
+    return template("register", renderDict)
+
+@application.route('/registerSubmit', method='POST')
+def registerSubmit():
+    """
+    注册用户填写完毕后提交请求
+    :return:
+    """
+    flowTowDataBase = COMP249Db()
+    userNick = users.session_user(db=flowTowDataBase)
+    if userNick:
+        registerInfo = "Please logout first"
+        showRegister = False
+    else:
+        nick     = request.POST.get("nick")
+        password = request.POST.get("password")
+        if users.add_user(flowTowDataBase, nick, password):
+            registerInfo = "Registered successfully!You can login in the upper right corner now."
+            showRegister = False
+        else:
+            registerInfo = "Registration failed, your registered user name already exists."
+            showRegister = True
+    renderDict = {"title": "FlowTow!",
+                  "homeActive": False,
+                  "aboutActive": False,
+                  "userNick": userNick,
+                  "myActive": False,
+                  "registerInfo": registerInfo,
+                  "showRegister": showRegister}
+    return template("register", renderDict)
+
 if __name__ == '__main__':
     debug()
     application.run()

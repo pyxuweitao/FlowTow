@@ -94,3 +94,10 @@ body, html {
     color: #FFF;
 }
 
+.header {
+    text-align: center;
+}
+
+.header p {
+    font-size: 20px;
+}

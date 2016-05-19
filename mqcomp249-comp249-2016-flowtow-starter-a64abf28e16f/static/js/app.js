@@ -23,3 +23,15 @@ $(function () {
         $('#file-list').html(fileNames);
     });
 });
+
+function valid() {
+    var password = $("#password").val();
+    var passwordRepeated = $("#passwordRepeated").val();
+    if (password == passwordRepeated) {
+        return true;
+    }
+    else {
+        alert("The password you entered two times is not the same!");
+        return false;
+    }
+}

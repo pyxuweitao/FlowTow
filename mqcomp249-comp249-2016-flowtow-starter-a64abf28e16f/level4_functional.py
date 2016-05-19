@@ -7,7 +7,7 @@ import unittest
 import webtest
 import bottle
 import os
-from urllib.parse import urlparse
+from urlparse import urlparse
 
 import main
 from database import COMP249Db

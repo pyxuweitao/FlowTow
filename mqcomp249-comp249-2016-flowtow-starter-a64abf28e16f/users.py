@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 @author:
 '''
@@ -59,3 +60,22 @@ def session_user(db):
     flowTowCursor.execute("SELECT usernick FROM sessions WHERE sessionid = ?", [cookie])
     sessionStored = flowTowCursor.fetchone()
     return sessionStored[0] if sessionStored else None
+
+def add_user(db, userNick, password):
+    """
+    用户注册添加新用户
+    :param db: 数据库对象
+    :param userNick: 新注册用户名
+    :param password:密码
+    :return: 注册成功则返回True，否则返回False
+    """
+    flowTowCursor = db.cursor()
+    #检查新用户名是否存在
+    flowTowCursor.execute("SELECT * FROM users WHERE nick = ?", [userNick])
+
+    if flowTowCursor.fetchone():
+        return False
+    else:
+        flowTowCursor.execute("INSERT INTO users(nick, password) VALUES (?, ?)", [userNick, db.encode(password)])
+        db.commit()
+        return True
